@@ -1,0 +1,19 @@
+web1:
+    php_version: 5.3.10
+    php_extensions:
+     - apc
+     - intl
+     - mbstring
+     - xsl
+     - zip
+     - gd
+     - curl
+
+    php_short_open_tag: "0"
+    php_magic_quotes_gpc: "0"
+    php_register_globals: "0"
+    php_session_autostart: "0"
+    php_date_timezone: Asia/Jakarta
+
+#    after_build:
+#        - "curl -s http://getcomposer.org/installer | php -- --quiet; php composer.phar install -n"

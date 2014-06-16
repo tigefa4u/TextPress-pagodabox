@@ -1,9 +1,11 @@
 web1: 
-  name: textpress
-#  shared_writable_dirs:
-#    - cache
+  name: kingmedia 
+  shared_writable_dirs:
+    - king-include/uploads/
   php_version: 5.4.14
   php_extensions:
+    - mysql
+    - sqlite
     - gd
     - eaccelerator
     - curl
@@ -31,6 +33,9 @@ web1:
     - readline
     - uploadprogress
     - oauth
+    - pdo
+    - pdo_sqlite
+    - pdo_mysql
     - session
     - sockets
     - soap
@@ -41,5 +46,9 @@ web1:
   php_file_uploads: "21"
   php_upload_max_filesize: "21M"
   php_max_file_uploads: 21
-  after_build:
-    - "curl -s http://getcomposer.org/installer | php -- --quiet; php composer.phar install -n"
+#  after_build:
+#    - "mv pagoda/wp-config.php wp-config.php"
+#    - "rm -R pagoda"
+db1:
+  name: kingmedia
+  type: mysql

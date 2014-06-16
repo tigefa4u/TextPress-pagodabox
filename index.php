@@ -1,31 +1,29 @@
 <?php
 /**
-* Require Slim and register Slim autoloader
+*
+* Require composer autoloader
 */
-require 'Slim/Slim.php';
-\Slim\Slim::registerAutoloader();
+
+require __DIR__ . '/vendor/autoload.php';
 
 /**
 * Require config file
 * @return Array config values
 */
 
-$config = require 'config/config.php';
-
-require 'lib/Textpress/Textpress.php';
-require 'lib/Textpress/View.php';
+$config = require __DIR__ . '/config/config.php';
 
 /**
 * Create an instance of Slim with custom view
 * and set the configurations from config file
 */
 
-$app = new \Slim\Slim(array('view' => new \Textpress\View(),'mode' => 'production'));
+$app = new Slim\Slim(array('view' => new Textpress\View(),'mode' => 'production'));
 
 /**
 * Create an object of Textpress and pass the object of Slim to it.
 */
-$textpress = new \Textpress\Textpress($app, $config);
+$textpress = new Textpress\Textpress($app, $config);
 
 /**
 * Finally run Textpress

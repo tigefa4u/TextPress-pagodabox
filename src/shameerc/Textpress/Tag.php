@@ -1,13 +1,12 @@
 <?php
 /**
- * Slim - a micro PHP 5 framework
- *
- * @author      Josh Lockhart <info@slimframework.com>
- * @copyright   2011 Josh Lockhart
- * @link        http://www.slimframework.com
- * @license     http://www.slimframework.com/license
+ * Textpress - PHP Flat file blog engine
+ * Textpress is a flat file blog engine, built on top of Slim inspired from Toto. 
+ * Now it have only a limited set of features and url options.
+ * 
+ * @author      Shameer C <me@shameerc.com>
+ * @copyright   2012 - Shameer C
  * @version     2.0.0
- * @package     Slim
  *
  * MIT LICENSE
  *
@@ -30,21 +29,40 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-namespace Slim\Exception;
+namespace Textpress;
 
 /**
- * Pass Exception
- *
- * This Exception will cause the Router::dispatch method
- * to skip the current matching route and continue to the next
- * matching route. If no subsequent routes are found, a
- * HTTP 404 Not Found response will be sent to the client.
- *
- * @package Slim
- * @author  Josh Lockhart
- * @since   1.0.0
- */
-class Pass extends \Exception
+* Tag
+* Represents a Tag with name and count 
+*
+* @author       Shameer
+* @since        1.0 
+*/
+class Tag
 {
+    /**
+    * tag name 
+    *
+    * @var string
+    */
+    public $name;
 
+    /**
+    * number of occurances of a tag 
+    *
+    * @var int
+    */
+    public $count;
+
+    /**
+    * Constructor 
+    * 
+    * @param string $name  Tag name
+    * @param int $count  Number of occurances of a tag
+    */
+    public function __construct($name, $count=1)
+    {
+        $this->name = $name;
+        $this->count = $count;
+    }
 }
